@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Challenge() {
   const [completed, setCompleted] = useState<boolean[]>(Array(21).fill(false));
-  const [streak, setStreak] = useState(1);
+  // const [streak, setStreak] = useState(1);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Challenge() {
     if (savedProgress) {
       const progressArray = JSON.parse(savedProgress);
       setCompleted(progressArray);
-      setStreak(progressArray.filter(Boolean).length);
+      // setStreak(progressArray.filter(Boolean).length);
     }
   }, []);
 
@@ -23,7 +23,7 @@ export default function Challenge() {
     localStorage.setItem('challengeProgress', JSON.stringify(updated));
 
     const newStreak = updated.filter(Boolean).length;
-    setStreak(newStreak);
+    // setStreak(newStreak);
     updateMessage(newStreak);
   };
 
